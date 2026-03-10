@@ -1,0 +1,460 @@
+/* ==================== CSS VARIABLES & THEMES ==================== */
+:root {
+    /* Modern Game Developer Theme (Bold & Professional) */
+    --primary: #FF6B6B;
+    --primary-dark: #e05a5a;
+    --secondary: #4ECDC4;
+    --dark: #2C3E50;
+    --light: #F7F9FC;
+    --accent: #FFE66D;
+    
+    /* Alternative Theme 1: Indie Studio (Playful & Vibrant) */
+    /*
+    --primary: #9B5DE5;
+    --primary-dark: #7b4ab8;
+    --secondary: #F15BB5;
+    --dark: #1A1A2E;
+    --light: #F9F9F9;
+    --accent: #FEE440;
+    */
+    
+    /* Alternative Theme 2: Retro Arcade (80s Gaming) */
+    /*
+    --primary: #FF2A6D;
+    --primary-dark: #cc2255;
+    --secondary: #05D9E8;
+    --dark: #0D0221;
+    --light: #F4F4F6;
+    --accent: #F7E05E;
+    */
+}
+
+/* ==================== GLOBAL STYLES ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--dark);
+}
+
+/* ==================== CUSTOM CLASSES ==================== */
+.gradient-bg {
+    background: linear-gradient(135deg, var(--dark) 0%, #1a2634 100%);
+}
+
+.text-primary {
+    color: var(--primary);
+}
+
+.bg-primary {
+    background-color: var(--primary);
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary {
+    border: 2px solid white;
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-secondary:hover {
+    background-color: white;
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.nav-link {
+    color: var(--dark);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: var(--primary);
+}
+
+.nav-link-mobile {
+    color: var(--dark);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.nav-link-mobile:hover {
+    background-color: rgba(255, 107, 107, 0.1);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+.section-title.text-left {
+    text-align: left;
+}
+
+.section-subtitle {
+    font-size: 1.25rem;
+    color: #6b7280;
+    max-width: 48rem;
+    margin: 0 auto;
+}
+
+/* Hero Card */
+.hero-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.avatar-circle {
+    width: 8rem;
+    height: 8rem;
+    background-color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Project Cards */
+.project-card {
+    background: white;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.project-image {
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+}
+
+.project-content {
+    padding: 1.5rem;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 0.5rem;
+}
+
+.project-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.project-badge {
+    background-color: rgba(255, 107, 107, 0.1);
+    color: var(--primary);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+}
+
+.project-description {
+    color: #6b7280;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.project-tag {
+    background-color: #f3f4f6;
+    color: #6b7280;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+}
+
+.project-button {
+    width: 100%;
+    background-color: var(--primary);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.project-button:hover {
+    background-color: var(--primary-dark);
+}
+
+/* Filter Buttons */
+.filter-btn {
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    background-color: #e5e7eb;
+    color: #374151;
+}
+
+.filter-btn:hover {
+    background-color: #d1d5db;
+}
+
+.filter-btn.active {
+    background-color: var(--primary);
+    color: white;
+}
+
+/* Stats Note */
+.stats-note {
+    background-color: rgba(255, 107, 107, 0.1);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Feature Items */
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+}
+
+/* Form Inputs */
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    ring: 2px solid var(--primary);
+    border-color: transparent;
+}
+
+/* Contact Links */
+.contact-link {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f9fafb;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.3s ease;
+}
+
+.contact-link:hover {
+    background-color: rgba(255, 107, 107, 0.1);
+}
+
+.contact-icon {
+    font-size: 1.5rem;
+    color: #6b7280;
+    margin-right: 1rem;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover .contact-icon {
+    color: var(--primary);
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-info .label {
+    font-weight: 600;
+}
+
+.contact-info .value {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+/* Skill Bars */
+.skill-item {
+    margin-bottom: 1rem;
+}
+
+.skill-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.25rem;
+}
+
+.skill-name {
+    font-weight: 500;
+}
+
+.skill-percent {
+    color: #6b7280;
+}
+
+.skill-bar-bg {
+    width: 100%;
+    height: 0.5rem;
+    background-color: #e5e7eb;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.skill-bar-fill {
+    height: 100%;
+    background-color: var(--primary);
+    border-radius: 9999px;
+    transition: width 1s ease;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    background-color: #1a1a1a;
+    margin: 5% auto;
+    padding: 1.25rem;
+    width: 90%;
+    height: 80%;
+    max-width: 1200px;
+    border-radius: 0.75rem;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 1.25rem;
+    top: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: white;
+}
+
+.timer-display {
+    background-color: var(--primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-family: monospace;
+    font-size: 1.25rem;
+}
+
+.canvas-container {
+    width: 100%;
+    height: calc(100% - 80px);
+    background-color: #111827;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-canvas {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 0.5rem;
+}
+
+/* Social Links */
+.social-link {
+    color: #9ca3af;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: white;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        height: 90%;
+        margin: 2% auto;
+    }
+    
+    .timer-display {
+        font-size: 1rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project-card {
+    animation: fadeIn 0.6s ease-out;
+}
