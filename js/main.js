@@ -74,8 +74,8 @@ const skills = [
 
 // ==================== CONTACT LINKS DATA ====================
 const contactLinks = [
-    { icon: 'fab fa-linkedin', label: 'LinkedIn', value: 'linkedin.com/in/ivanpetrov', url: '#' },
-    { icon: 'fab fa-github', label: 'GitHub', value: 'github.com/ivanpetrov', url: '#' },
+    { icon: 'fab fa-linkedin', label: 'LinkedIn', value: 't.me/ErcoIvanOrionixL', url: '#' },
+    { icon: 'fab fa-github', label: 'GitHub', value: 'myportfolio-ivanpetrovgabriel.onrender.com', url: '#' },
     { icon: 'fab fa-upwork', label: 'Upwork', value: 'Top Rated Plus', url: '#' },
     { icon: 'fas fa-phone-alt', label: 'Phone', value: '+1 (831) 247-0061', url: null },
     { icon: 'fas fa-map-marker-alt', label: 'Location', value: 'Remote (UTC+3)', url: null }
