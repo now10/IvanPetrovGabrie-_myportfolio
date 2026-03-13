@@ -1,6 +1,6 @@
 // ==================== GAMES DATA ====================
 // All playable game data - easy to update URLs here
-const REPLIT_URL = 'https://2026-word-mosaic-word-puzzle-shape-match--myrdpa.replit.app';
+const REPLIT_URL = 'https://replit.com/@myrdpa/2026-Word-Mosaic-Word-Puzzle-Shape-Match';
 
 const games = [
     {
