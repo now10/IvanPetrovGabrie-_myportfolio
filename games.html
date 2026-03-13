@@ -14,6 +14,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
+    <!-- Custom Styles -->
     <style>
         body { font-family: 'Inter', sans-serif; background: #0f172a; }
         .game-card { transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.1); }
@@ -121,7 +122,7 @@
 <!-- ==================== PLAYABLE GAMES SECTION ==================== -->
 <div id="games-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
     <h2 class="text-2xl font-bold mb-6 flex items-center">
-        <i class="fas fa-gamepad text-[#FF6B6B] mr-3"></i>Playable Demos <span class="text-sm text-gray-500 ml-4">Click any card to play for 60 seconds</span>
+        <i class="fas fa-gamepad text-[#FF6B6B] mr-3"></i>Playable Demos <span class="text-sm text-gray-500 ml-4">Click any card to play in new tab</span>
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="games-grid"></div>
 </div>
@@ -151,26 +152,6 @@
     <p class="text-sm mt-2">— Myself and a few trusted colleagues —</p>
 </div>
 
-<!-- ==================== GAME MODAL (WebGL) ==================== -->
-<div id="game-modal" class="modal">
-    <div class="modal-content relative">
-        <span class="close" onclick="closeGameModal()">&times;</span>
-        
-        <div class="flex justify-between items-center mb-4">
-            <h2 id="modal-game-title" class="text-2xl font-bold text-[#FF6B6B]">Loading Game...</h2>
-            <div class="flex items-center space-x-4">
-                <span class="timer-badge" id="modal-timer">⏱️ 60s Preview</span>
-                <span id="modal-platform" class="bg-gray-700 px-4 py-2 rounded-full text-sm"></span>
-            </div>
-        </div>
-        
-        <!-- WebGL Iframe -->
-        <iframe id="game-iframe" class="webgl-frame" allow="autoplay; fullscreen; xr-spatial-tracking; gyroscope; accelerometer" allowfullscreen></iframe>
-        
-        <p class="text-center text-gray-400 mt-3 text-sm" id="modal-instruction">Tap to play • 60-second preview • Full version live on stores</p>
-    </div>
-</div>
-
 <!-- ==================== VIDEO MODAL ==================== -->
 <div id="video-modal" class="modal">
     <div class="modal-content relative">
@@ -190,305 +171,12 @@
     </div>
 </div>
 
-<!-- ==================== JAVASCRIPT ==================== -->
-<script>
-    // ========== PLAYABLE GAMES DATA (12) ==========
-    const games = [
-        {
-            id: 'match3-adventure',
-            title: 'Match-3 Adventure',
-            category: 'Match-3',
-            platform: 'iOS • Android',
-            image: 'https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=600',
-            webglUrl: 'https://play.unity.com/mg/other/webgl-builds-394', // Replace with your actual WebGL URL
-            description: 'Puzzle match-3 with 1M+ downloads'
-        },
-        {
-            id: 'word-mosaic',
-            title: 'Word Mosaic',
-            category: 'Word',
-            platform: 'iOS Featured',
-            image: 'https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=600',
-            webglUrl: 'https://play.unity.com/mg/word/webgl-builds-123',
-            description: 'Crossword puzzle game'
-        },
-        {
-            id: 'sort-it-out',
-            title: 'Sort It Out!',
-            category: 'Sorting',
-            platform: 'iOS • Android',
-            image: 'https://images.pexels.com/photos/7654125/pexels-photo-7654125.jpeg?auto=compress&cs=tinysrgb&w=600',
-            webglUrl: 'https://play.unity.com/mg/other/sorting-game-demo',
-            description: 'Casual sorting puzzle'
-        },
-        {
-            id: 'puzzle-quest',
-            title: 'Puzzle Quest',
-            category: 'Match-3',
-            platform: 'iOS Exclusive',
-            image: 'https://images.pexels.com/photos/1192545/pexels-photo-1192545.jpeg?auto=compress&cs=tinysrgb&w=600',
-            webglUrl: 'https://play.unity.com/mg/other/puzzle-quest-demo',
-            description: 'Hybrid-casual match-3'
-        },
-        {
-            id: 'word-connect',
-            title: 'Word Connect',
-            category: 'Word',
-            platform: 'Android',
-            image: 'https://images.pexels.com/photos/3112666/pexels-photo-3112666.jpeg?auto=compress&cs=tinysrgb&w=600',
-            webglUrl: 'https://play.unity.com/mg/word/word-connect-demo',
-            description: 'Daily word puzzle'
-        },
-        {
-            id: 'block-blast',
-            title: 'Block Blast',
-            category: 'Block Puzzle',
-            platform: 'iOS • Android',
-            image: 'https://images.pexels.com/photos/4065892/pexels-photo-4065892.jpeg?auto=compress&cs=tinysrgb&w=600',
-            webglUrl: 'https://play.unity.com/mg/other/block-blast-demo',
-            description: 'Classic block puzzle'
-        },
-        {
-            id: 'sort-master',
-            title: 'Sort Master',
-            category: 'Sorting',
-            platform: 'iOS',
-            image: 'https://images.pexels.com/photos/7654125/pexels-photo-7654125.jpeg?auto=compress&cs=tinysrgb&w=600',
-            webglUrl: 'https://play.unity.com/mg/other/sort-master-demo',
-            description: 'Advanced sorting mechanics'
-        },
-        {
-            id: 'word-search-pro',
-            title: 'Word Search Pro',
-            category: 'Word',
-            platform: 'iOS • Android',
-            image: 'https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=600',
-            webglUrl: 'https://play.unity.com/mg/word/word-search-demo',
-            description: '500+ levels'
-        },
-        {
-            id: 'match-3-journey',
-            title: 'Match-3 Journey',
-            category: 'Match-3',
-            platform: 'iOS',
-            image: 'https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=600',
-            webglUrl: 'https://play.unity.com/mg/other/match3-journey-demo',
-            description: 'Story-driven puzzle'
-        },
-        {
-            id: 'tile-master',
-            title: 'Tile Master',
-            category: 'Block Puzzle',
-            platform: 'Android',
-            image: 'https://images.pexels.com/photos/4065892/pexels-photo-4065892.jpeg?auto=compress&cs=tinysrgb&w=600',
-            webglUrl: 'https://play.unity.com/mg/other/tile-master-demo',
-            description: 'Relaxing block puzzle'
-        },
-        {
-            id: 'word-cross',
-            title: 'Word Cross',
-            category: 'Word',
-            platform: 'iOS Featured',
-            image: 'https://images.pexels.com/photos/3112666/pexels-photo-3112666.jpeg?auto=compress&cs=tinysrgb&w=600',
-            webglUrl: 'https://play.unity.com/mg/word/word-cross-demo',
-            description: 'Crossword puzzles'
-        },
-        {
-            id: 'sort-challenge',
-            title: 'Sort Challenge',
-            category: 'Sorting',
-            platform: 'iOS • Android',
-            image: 'https://images.pexels.com/photos/7654125/pexels-photo-7654125.jpeg?auto=compress&cs=tinysrgb&w=600',
-            webglUrl: 'https://play.unity.com/mg/other/sort-challenge-demo',
-            description: 'Fast-paced sorting'
-        }
-    ];
+<!-- Scripts -->
+<script src="js/games-data.js"></script>
+<script src="js/games-ui.js"></script>
 
-    // ========== MEDIA GALLERY DATA ==========
-    // 8 Images
-    const galleryImages = [
-        { src: 'https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Match-3 Adventure Gameplay', category: 'Match-3' },
-        { src: 'https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Word Mosaic Level Design', category: 'Word' },
-        { src: 'https://images.pexels.com/photos/7654125/pexels-photo-7654125.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Sort It Out! Interface', category: 'Sorting' },
-        { src: 'https://images.pexels.com/photos/1192545/pexels-photo-1192545.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Puzzle Quest Power-ups', category: 'Match-3' },
-        { src: 'https://images.pexels.com/photos/3112666/pexels-photo-3112666.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Word Connect Daily Challenge', category: 'Word' },
-        { src: 'https://images.pexels.com/photos/4065892/pexels-photo-4065892.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Block Blast Effects', category: 'Block' },
-        { src: 'https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Sort Master UI Design', category: 'Sorting' },
-        { src: 'https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Word Search Pro Levels', category: 'Word' }
-    ];
-
-    // 4 Videos (using sample videos - replace with your actual video URLs)
-    const galleryVideos = [
-        { src: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4', poster: 'https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=600', title: 'Match-3 Adventure - Gameplay Trailer', duration: '0:32' },
-        { src: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4', poster: 'https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=600', title: 'Word Mosaic - Level Progression', duration: '0:45' },
-        { src: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4', poster: 'https://images.pexels.com/photos/7654125/pexels-photo-7654125.jpeg?auto=compress&cs=tinysrgb&w=600', title: 'Sort It Out! - Fast Gameplay', duration: '0:28' },
-        { src: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4', poster: 'https://images.pexels.com/photos/1192545/pexels-photo-1192545.jpeg?auto=compress&cs=tinysrgb&w=600', title: 'Puzzle Quest - Boss Level', duration: '0:51' }
-    ];
-
-    // ========== RENDER FUNCTIONS ==========
-    function renderGames() {
-        const grid = document.getElementById('games-grid');
-        grid.innerHTML = games.map(game => `
-            <div class="game-card bg-[#1e293b] rounded-xl overflow-hidden cursor-pointer relative" onclick="openGameModal('${game.id}')">
-                <div class="relative h-40">
-                    <img src="${game.image}" alt="${game.title}" class="w-full h-full object-cover">
-                    <div class="play-overlay absolute inset-0 flex items-center justify-center">
-                        <i class="fas fa-play-circle text-5xl text-[#FF6B6B]"></i>
-                    </div>
-                </div>
-                <div class="p-4">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="font-bold">${game.title}</h3>
-                        <span class="text-xs bg-gray-700 px-2 py-1 rounded">${game.category}</span>
-                    </div>
-                    <p class="text-sm text-gray-400 mb-2">${game.description}</p>
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs text-[#FF6B6B]">${game.platform}</span>
-                        <span class="text-xs text-gray-500"><i class="far fa-clock mr-1"></i>60s preview</span>
-                    </div>
-                </div>
-            </div>
-        `).join('');
-    }
-
-    function renderImages() {
-        const grid = document.getElementById('images-grid');
-        grid.innerHTML = galleryImages.map(img => `
-            <div class="media-card bg-[#1e293b] rounded-lg overflow-hidden cursor-pointer" onclick="openImageModal('${img.src}')">
-                <img src="${img.src}" alt="${img.title}" class="w-full h-40 object-cover">
-                <div class="p-2">
-                    <p class="text-xs text-gray-400">${img.title}</p>
-                </div>
-            </div>
-        `).join('');
-    }
-
-    function renderVideos() {
-        const grid = document.getElementById('videos-grid');
-        grid.innerHTML = galleryVideos.map((video, index) => `
-            <div class="media-card bg-[#1e293b] rounded-lg overflow-hidden cursor-pointer video-thumb" onclick="openVideoModal(${index})">
-                <div class="relative">
-                    <img src="${video.poster}" alt="${video.title}" class="w-full h-48 object-cover">
-                    <div class="play-icon"><i class="fas fa-play-circle"></i></div>
-                    <span class="absolute bottom-2 right-2 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded">${video.duration}</span>
-                </div>
-                <div class="p-3">
-                    <p class="font-medium">${video.title}</p>
-                </div>
-            </div>
-        `).join('');
-    }
-
-    // ========== TOGGLE VIEW ==========
-    let currentView = 'games'; // 'games' or 'media'
-    
-    window.toggleView = function() {
-        const toggle = document.getElementById('toggle-switch');
-        const gamesSection = document.getElementById('games-section');
-        const mediaSection = document.getElementById('media-section');
-        const gamesOption = document.getElementById('games-option');
-        const mediaOption = document.getElementById('media-option');
-        
-        toggle.classList.toggle('active');
-        
-        if (currentView === 'games') {
-            // Switch to media
-            gamesSection.classList.add('hidden');
-            mediaSection.classList.remove('hidden');
-            gamesOption.classList.remove('text-white');
-            gamesOption.classList.add('text-gray-400');
-            mediaOption.classList.remove('text-gray-400');
-            mediaOption.classList.add('text-white');
-            currentView = 'media';
-        } else {
-            // Switch to games
-            gamesSection.classList.remove('hidden');
-            mediaSection.classList.add('hidden');
-            gamesOption.classList.remove('text-gray-400');
-            gamesOption.classList.add('text-white');
-            mediaOption.classList.remove('text-white');
-            mediaOption.classList.add('text-gray-400');
-            currentView = 'games';
-        }
-    };
-
-    // ========== MODAL FUNCTIONS ==========
-    function openGameModal(gameId) {
-        const game = games.find(g => g.id === gameId);
-        if (!game) return;
-
-        document.getElementById('modal-game-title').textContent = game.title;
-        document.getElementById('modal-platform').textContent = game.platform;
-        document.getElementById('modal-instruction').innerHTML = `Tap to play • 60-second preview • <a href="#" class="text-[#FF6B6B] hover:underline">Full version live on stores</a>`;
-        
-        const iframe = document.getElementById('game-iframe');
-        const timestamp = new Date().getTime();
-        iframe.src = `${game.webglUrl}?t=${timestamp}`;
-        
-        document.getElementById('game-modal').style.display = 'block';
-        
-        // Auto-close after 60 seconds
-        setTimeout(() => {
-            if (document.getElementById('game-modal').style.display === 'block') {
-                alert('⏰ 60-second preview ended. Download the full game on App Store!');
-                closeGameModal();
-            }
-        }, 60000);
-    }
-
-    window.closeGameModal = function() {
-        document.getElementById('game-modal').style.display = 'none';
-        document.getElementById('game-iframe').src = '';
-    }
-
-    function openVideoModal(index) {
-        const video = galleryVideos[index];
-        const videoPlayer = document.getElementById('video-player');
-        videoPlayer.querySelector('source').src = video.src;
-        videoPlayer.load();
-        document.getElementById('video-title').textContent = video.title;
-        document.getElementById('video-modal').style.display = 'block';
-    }
-
-    window.closeVideoModal = function() {
-        document.getElementById('video-modal').style.display = 'none';
-        document.getElementById('video-player').pause();
-    }
-
-    function openImageModal(src) {
-        // Simple image lightbox
-        const modal = document.createElement('div');
-        modal.className = 'modal';
-        modal.style.display = 'block';
-        modal.innerHTML = `
-            <div class="modal-content" style="background: transparent; text-align: center;">
-                <span class="close" onclick="this.parentElement.parentElement.remove()">&times;</span>
-                <img src="${src}" style="max-width: 90%; max-height: 80%; margin: auto; display: block; border-radius: 8px;">
-            </div>
-        `;
-        document.body.appendChild(modal);
-    }
-
-    // Close modals on outside click
-    window.onclick = function(event) {
-        const gameModal = document.getElementById('game-modal');
-        const videoModal = document.getElementById('video-modal');
-        if (event.target === gameModal) closeGameModal();
-        if (event.target === videoModal) closeVideoModal();
-    }
-
-    // ========== INIT ==========
-    renderGames();
-    renderImages();
-    renderVideos();
-</script>
-
-<!-- ==================== FOOTER ==================== -->
-<footer class="border-t border-gray-800 mt-20 py-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
-        <p>© 2026 Ivan Petrov • 300+ Unity iOS Games Delivered • <a href="index.html" class="text-[#FF6B6B] hover:underline">Back to Resume</a></p>
-    </div>
-</footer>
+<!-- Note: The old game-modal div has been removed since we open in new tabs -->
+<!-- The game-iframe and related elements are no longer needed -->
 
 </body>
 </html>
