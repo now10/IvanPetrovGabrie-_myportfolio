@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ivan Petrov | Senior Unity Developer | iOS Specialist | 300+ Games Shipped</title>
+    <meta name="description" content="Senior Unity Developer with 300+ shipped mobile games. iOS specialist in puzzle, match-3, and hybrid-casual titles.">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+
+<!-- ==================== NAVIGATION ==================== -->
+<nav class="bg-white shadow-lg fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex-shrink-0">
+                <a href="#home" class="text-2xl font-bold text-primary">Ivan Petrov</a>
+            </div>
+            <div class="hidden md:block">
+                <div class="ml-10 flex items-center space-x-8">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#portfolio" class="nav-link">Portfolio</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-500 hover:text-gray-600 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+            <a href="#home" class="block px-3 py-2 nav-link-mobile">Home</a>
+            <a href="#portfolio" class="block px-3 py-2 nav-link-mobile">Portfolio</a>
+            <a href="#about" class="block px-3 py-2 nav-link-mobile">About</a>
+            <a href="#contact" class="block px-3 py-2 nav-link-mobile">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ==================== HERO SECTION ==================== -->
+<section id="home" class="pt-24 pb-16 gradient-bg text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-4">
+                    Senior Unity Developer
+                </h1>
+                <p class="text-2xl md:text-3xl text-indigo-200 mb-6">
+                    iOS Specialist • 300+ Games Shipped
+                </p>
+                <p class="text-lg text-gray-200 mb-8 max-w-lg">
+                    I build polished, high-performance mobile games — match-3, puzzle, word, and hybrid-casual titles that players love.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#portfolio" class="btn-primary">View My Work</a>
+                    <a href="#contact" class="btn-secondary">Let's Talk</a>
+                    <a href="games.html" class="btn-primary">
+                        <i class="fas fa-images mr-2"></i>Click To View Game Gallery (12 Games • 8 Images • 4 Videos)
+                    </a>
+                </div>
+                <div class="grid grid-cols-3 gap-4 mt-12">
+                    <div>
+                        <div class="text-3xl font-bold">300+</div>
+                        <div class="text-indigo-200 text-sm">Games Shipped</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold">7+</div>
+                        <div class="text-indigo-200 text-sm">Years Experience</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold">iOS</div>
+                        <div class="text-indigo-200 text-sm">Specialist</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden md:block">
+                <div class="hero-card">
+                    <div class="text-center">
+                        <div class="avatar-circle mx-auto mb-4">
+                            <i class="fas fa-gamepad text-5xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">Ivan Petrov</h3>
+                        <p class="text-indigo-200">Unity • C# • iOS • Android</p>
+                        <div class="flex justify-center space-x-4 mt-4">
+                            <i class="fab fa-unity text-2xl"></i>
+                            <i class="fab fa-apple text-2xl"></i>
+                            <i class="fab fa-android text-2xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== PORTFOLIO SECTION ==================== -->
+<section id="portfolio" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="section-title">My Portfolio</h2>
+            <p class="section-subtitle">
+                300+ Unity games shipped — from hyper-casual prototypes to fully polished puzzle titles. 
+                Here's a selection of my recent work.
+            </p>
+        </div>
+        
+        <div class="flex flex-wrap justify-center gap-3 mb-12" id="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="match3">Match-3</button>
+            <button class="filter-btn" data-filter="word">Word Puzzle</button>
+            <button class="filter-btn" data-filter="simulation">Simulation</button>
+            <button class="filter-btn" data-filter="ios">iOS Featured</button>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+            <!-- Project 1 - Match-3 (Existing) -->
+            <div class="project-card game-card" data-category="match3 ios">
+                <img src="https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Match-3 Game" class="project-image">
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3 class="project-title">Match-3 Adventure</h3>
+                        <span class="project-badge">iOS • Android</span>
+                    </div>
+                    <p class="project-description">Soft-launched match-3 puzzle with 1M+ downloads. Built core systems, optimized iOS performance to 60 FPS.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Unity</span>
+                        <span class="project-tag">C#</span>
+                        <span class="project-tag">HLSL</span>
+                    </div>
+                    <button onclick="window.open('https://replit.com/@myrdpa/2026-Word-Mosaic-Word-Puzzle-Shape-Match', '_blank')" class="project-button">
+                        <i class="fas fa-play mr-2"></i>Play Demo
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Project 2 - NEW DRIVING SIMULATION GAME -->
+            <div class="project-card game-card" data-category="simulation">
+                <img src="https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Extreme Car Driving Simulator" class="project-image">
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3 class="project-title">Extreme Car Driving Simulator</h3>
+                        <span class="project-badge">WebGL • 3D</span>
+                    </div>
+                    <p class="project-description">3D open-world driving with realistic physics, AI traffic, drifting, and 4 camera angles. Built with React Three Fiber.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Three.js</span>
+                        <span class="project-tag">WebGL</span>
+                        <span class="project-tag">Physics</span>
+                    </div>
+                    <button onclick="window.open('https://d89752c8-c350-4b63-a89a-79ad61e7f000-00-23ouew19ry8y5.riker.replit.dev/', '_blank')" class="project-button">
+                        <i class="fas fa-car mr-2"></i>Drive Now
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Project 3 - Word Mosaic (Existing) -->
+            <div class="project-card game-card" data-category="word ios">
+                <img src="https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Word Puzzle" class="project-image">
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3 class="project-title">Word Mosaic</h3>
+                        <span class="project-badge">iOS Featured</span>
+                    </div>
+                    <p class="project-description">Crossword/word search game featured on App Store. Reduced build size by 25% on iOS.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Unity</span>
+                        <span class="project-tag">uGUI</span>
+                        <span class="project-tag">Firebase</span>
+                    </div>
+                    <button onclick="window.open('https://replit.com/@myrdpa/2026-Word-Mosaic-Word-Puzzle-Shape-Match', '_blank')" class="project-button">
+                        <i class="fas fa-play mr-2"></i>Play Demo
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Project 4 - Sort It Out (Existing) -->
+            <div class="project-card game-card" data-category="sorting">
+                <img src="https://images.pexels.com/photos/7654125/pexels-photo-7654125.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Sorting Game" class="project-image">
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3 class="project-title">Sort It Out!</h3>
+                        <span class="project-badge">Android • iOS</span>
+                    </div>
+                    <p class="project-description">Casual sorting puzzle with 500k+ downloads. Built scalable UI architecture.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Unity</span>
+                        <span class="project-tag">IAP</span>
+                        <span class="project-tag">AppLovin</span>
+                    </div>
+                    <button onclick="window.open('https://replit.com/@myrdpa/2026-Word-Mosaic-Word-Puzzle-Shape-Match', '_blank')" class="project-button">
+                        <i class="fas fa-play mr-2"></i>Play Demo
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Project 5 - Puzzle Quest (Existing) -->
+            <div class="project-card game-card" data-category="match3 ios">
+                <img src="https://images.pexels.com/photos/1192545/pexels-photo-1192545.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Puzzle Quest" class="project-image">
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3 class="project-title">Puzzle Quest</h3>
+                        <span class="project-badge">iOS Exclusive</span>
+                    </div>
+                    <p class="project-description">Hybrid-casual match-3. Wrote custom HLSL shaders for iPhone 6–14 optimization.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Unity</span>
+                        <span class="project-tag">Metal</span>
+                        <span class="project-tag">HLSL</span>
+                    </div>
+                    <button onclick="window.open('https://replit.com/@myrdpa/2026-Word-Mosaic-Word-Puzzle-Shape-Match', '_blank')" class="project-button">
+                        <i class="fas fa-play mr-2"></i>Play Demo
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Project 6 - Word Connect (Existing) -->
+            <div class="project-card game-card" data-category="word">
+                <img src="https://images.pexels.com/photos/3112666/pexels-photo-3112666.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Word Connect" class="project-image">
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3 class="project-title">Word Connect</h3>
+                        <span class="project-badge">Android</span>
+                    </div>
+                    <p class="project-description">Daily word puzzle with A/B testing framework for retention optimization.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Unity</span>
+                        <span class="project-tag">AppsFlyer</span>
+                    </div>
+                    <button onclick="window.open('https://replit.com/@myrdpa/2026-Word-Mosaic-Word-Puzzle-Shape-Match', '_blank')" class="project-button">
+                        <i class="fas fa-play mr-2"></i>Play Demo
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-12 stats-note">
+            <p class="text-xl text-primary font-semibold mb-2">➕ 294 more games shipped with my team</p>
+            <p class="text-gray-600">From hyper-casual prototypes to fully released titles — every project delivered on time.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== ABOUT SECTION ==================== -->
+<section id="about" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="relative">
+                    <div class="absolute -top-4 -left-4 w-24 h-24 bg-indigo-100 rounded-full -z-10"></div>
+                    <img src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Developer at work" class="rounded-2xl shadow-xl">
+                </div>
+            </div>
+            <div>
+                <h2 class="section-title text-left">About Me</h2>
+                <p class="text-lg text-gray-600 mb-6">
+                    I'm a Senior Unity Developer with over 7 years of experience shipping mobile games. 
+                    I specialize in iOS builds and optimization — ensuring games run buttery smooth on every device, 
+                    from the latest iPhone down to older generations.
+                </p>
+                
+                <div class="space-y-4 mb-8">
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                        <span><span class="font-semibold">300+ games shipped</span> — from prototypes to global releases</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                        <span><span class="font-semibold">iOS specialist</span> — full pipeline: provisioning, Metal debugging, App Store submissions</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                        <span><span class="font-semibold">Puzzle expert</span> — match-3, word, sorting, hybrid-casual</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                        <span><span class="font-semibold">Team collaborator</span> — worked with developer friends to scale production</span>
+                    </div>
+                </div>
+                
+                <div class="space-y-4" id="skill-bars"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== CONTACT SECTION ==================== -->
+<section id="contact" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="section-title">Let's Work Together</h2>
+            <p class="section-subtitle">
+                Have a project in mind? Need a Unity developer who delivers on time? Let's talk.
+            </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h3 class="text-2xl font-bold mb-6">Send a Message</h3>
+                <form id="contact-form">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Name</label>
+                        <input type="text" id="user_name" class="form-input" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Email</label>
+                        <input type="email" id="user_email" class="form-input" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Message</label>
+                        <textarea id="user_message" rows="4" class="form-input" required></textarea>
+                    </div>
+                    <button type="submit" id="send-btn" class="btn-primary w-full">Send Message</button>
+                </form>
+                <div id="form-status" class="mt-4 text-center"></div>
+                <p class="text-sm text-gray-500 mt-4 text-center">
+                    Or email directly: <a href="mailto:PetrovIvanGabrielErco@dr.com" class="text-primary">PetrovIvanGabrielErco@dr.com</a>
+                </p>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h3 class="text-2xl font-bold mb-6">Connect With Me</h3>
+                <div class="space-y-4" id="contact-links"></div>
+                
+                <div class="mt-6 p-4 bg-indigo-50 rounded-lg">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="font-semibold">Download Resume</span>
+                            <p class="text-sm text-gray-600">PDF, 2 pages</p>
+                        </div>
+                        <a href="#" class="btn-primary">
+                            <i class="fas fa-download mr-2"></i>PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="text-center md:text-left mb-4 md:mb-0">
+                <h3 class="text-2xl font-bold">Ivan Petrov</h3>
+                <p class="text-gray-400">Senior Unity Developer • iOS Specialist</p>
+            </div>
+            <div class="flex space-x-6" id="social-links"></div>
+        </div>
+        <hr class="border-gray-800 my-8">
+        <div class="text-center text-gray-500 text-sm">
+            © 2026 Ivan Petrov. All rights reserved. | Built with Unity and ☕
+        </div>
+    </div>
+</footer>
+
+<!-- ==================== GAME MODAL ==================== -->
+<div id="game-modal" class="modal">
+    <div class="modal-content">
+        <div class="flex justify-between items-center mb-4">
+            <h2 id="game-title" class="text-2xl font-bold text-white">Game Demo</h2>
+            <span id="game-timer" class="timer-display">60s</span>
+            <span class="close" onclick="closeGameModal()">&times;</span>
+        </div>
+        
+        <div id="game-canvas-container" class="canvas-container">
+            <canvas id="game-canvas" width="400" height="600" class="game-canvas"></canvas>
+        </div>
+        
+        <div class="mt-4 text-center text-gray-300">
+            <p id="game-instruction" class="text-sm"></p>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
