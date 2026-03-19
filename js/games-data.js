@@ -1,6 +1,6 @@
 // ==================== GAMES DATA ====================
 // All playable game data - easy to update URLs here
-const REPLIT_URL = 'https://0908e881-5d9e-4d43-9f2b-804fdb26c5f2-00-1k70vj9b28rqi.picard.replit.dev/';
+const REPLIT_URL = 'https://lovable.dev/projects/a78967b4-936d-4e0e-b5f3-2e6714e8ce1e';
 const DRIVING_URL = 'https://d89752c8-c350-4b63-a89a-79ad61e7f000-00-23ouew19ry8y5.riker.replit.dev/';
 
 const games = [
