@@ -1,6 +1,6 @@
 // ==================== GAMES DATA ====================
 // All playable game data - easy to update URLs here
-const REPLIT_URL = 'https://lovable.dev/projects/a78967b4-936d-4e0e-b5f3-2e6714e8ce1e';
+const REPLIT_URL = 'gamevault-viewplayable.lovable.app';
 const DRIVING_URL = 'https://www.jabali.ai/play/a69e8694-7918-477c-8786-818f55501d29/x/x/?_gl=1*1x3qerz*_gcl_au*MjEzNjE2OTAyMi4xNzczNzMxMjA2LjY5MDY5MjU3NS4xNzczODgwNDc4LjE3NzM4ODIyMTE.*_ga*MTY2MzYwOTI4LjE3NzM3MzEyMDY.*_ga_HLYMLCK48Y*czE3NzM4ODA0NjgkbzE1JGcxJHQxNzczODgyMjExJGo2MCRsMCRoMA';
 
 const games = [
